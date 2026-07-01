@@ -8,7 +8,7 @@ export const SITE = {
   locale: 'en_US',
   location: 'Scottsdale, Arizona',
   price: '11997',
-  googleSiteVerification: 'i3lCVDSEuEosrNsJwy4_vWvNU0E0UgiWTEHeALjXPiY',
+  googleSiteVerification: '5kZ2WJVXfcqJoyqgzlWQQbgeucCtJJpZCkM2idQP68s'
 } as const;
 
 export const ACQUISITION_MAILTO = `mailto:${SITE.email}?subject=${encodeURIComponent('Acquisition Inquiry - secureaiframeworks.help')}&body=${encodeURIComponent('Hello,\n\nI am interested in acquiring secureaiframeworks.help. Please provide details and next steps.\n\nBest regards,')}`;
