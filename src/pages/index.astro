@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import PositioningSection from '../components/PositioningSection.astro';
+import WhySection from '../components/WhySection.astro';
+import UseCases from '../components/UseCases.astro';
+import PricingSection from '../components/PricingSection.astro';
+import InquirySection from '../components/InquirySection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout>
+  <Nav />
+  <main>
+    <Hero />
+    <PositioningSection />
+    <WhySection />
+    <UseCases />
+    <PricingSection />
+    <InquirySection />
+    <Footer />
+  </main>
+</BaseLayout>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      nav?.classList.add('nav-scrolled');
+    } else {
+      nav?.classList.remove('nav-scrolled');
+    }
+  });
+
+  // Mobile menu
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+    const svg = btn.querySelector('svg');
+    if (svg) {
+      if (!menu?.classList.contains('hidden')) {
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" />';
+      } else {
+        svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+      }
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href')?.substring(1);
+      if (!targetId) return;
+      const target = document.getElementById(targetId);
+      if (target) {
+        e.preventDefault();
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition - bodyRect - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Escape key closes mobile menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      menu?.classList.add('hidden');
+    }
+  });
+
+  console.log('%c[secureaiframeworks.help] Premium domain landing page initialized. "The Help" trusted resource positioning.', 'color:#22f5ff');
+</script>

@@ -1,0 +1,16 @@
+name = "secureaiframeworks-help-v1"
+compatibility_date = "2026-06-30"
+workers_dev = false
+preview_urls = false
+
+[[routes]]
+pattern = "secureaiframeworks.help"
+custom_domain = true
+
+[[routes]]
+pattern = "www.secureaiframeworks.help"
+custom_domain = true
+
+[assets]
+directory = "./dist"
+html_handling = "auto-trailing-slash"
