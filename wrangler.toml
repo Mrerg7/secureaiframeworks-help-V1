@@ -1,4 +1,5 @@
 name = "secureaiframeworks-help-v1"
+main = "./src/worker.ts"
 compatibility_date = "2026-06-30"
 workers_dev = false
 preview_urls = false
