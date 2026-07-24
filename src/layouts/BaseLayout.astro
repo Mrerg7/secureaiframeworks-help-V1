@@ -46,6 +46,7 @@ const structuredData = {
       description:
         'The go-to premium domain for secure AI frameworks help, positioned as the definitive resource for enterprise AI security, guardrails, and trustworthy frameworks. Available for acquisition.',
       url: SITE.url,
+      image: SITE.image,
       category: 'Premium Domain Name',
       brand: {
         '@type': 'Brand',
@@ -149,13 +150,13 @@ const structuredData = {
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/c7e99723-184f-4f19-5e8d-95f4bdcb3d00/public" />
+    <meta property="og:image" content={SITE.image} />
     <meta property="og:locale" content={SITE.locale} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/c7e99723-184f-4f19-5e8d-95f4bdcb3d00/public" />
+    <meta name="twitter:image" content={SITE.image} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />

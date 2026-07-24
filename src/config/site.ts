@@ -8,6 +8,7 @@ export const SITE = {
   locale: 'en_US',
   location: 'Scottsdale, Arizona',
   price: '11997',
+  image: 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/c7e99723-184f-4f19-5e8d-95f4bdcb3d00/public',
   googleSiteVerification: '5kZ2WJVXfcqJoyqgzlWQQbgeucCtJJpZCkM2idQP68s'
 } as const;
 
