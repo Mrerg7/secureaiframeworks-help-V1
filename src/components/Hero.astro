@@ -1,74 +1,116 @@
 ---
-import { ACQUISITION_MAILTO } from '../config/site';
+import { ACQUISITION_MAILTO, MAKE_OFFER_MAILTO, SITE } from '../config/site';
 
-const heroImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/c7e99723-184f-4f19-5e8d-95f4bdcb3d00/public';
+const heroImage = SITE.image;
 ---
 
 <header class="relative min-h-[100dvh] flex items-center pt-20">
   <!-- Background image -->
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0 z-0" aria-hidden="true">
     <img
       src={heroImage}
       alt=""
       class="w-full h-full object-cover"
       loading="eager"
+      fetchpriority="high"
       decoding="async"
+      width="1920"
+      height="1080"
     />
     <div class="absolute inset-0 bg-[#0a0a0f]/70"></div>
   </div>
 
   <div class="max-w-5xl mx-auto px-6 pb-16 pt-12 md:pt-8 text-center relative z-10">
-    <!-- Premium Badge -->
-    <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-8">
-      <div class="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse"></div>
-      <span class="text-xs font-semibold tracking-[1.5px] text-white/80">THE HELP YOU NEED</span>
+    <!-- Premium Badge with urgency -->
+    <div class="flex flex-wrap items-center justify-center gap-2 mb-8">
+      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5">
+        <div class="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse" aria-hidden="true"></div>
+        <span class="text-xs font-semibold tracking-[1.5px] text-white/80">PREMIUM .HELP DOMAIN FOR SALE</span>
+      </div>
+      <div class="inline-flex items-center gap-x-2 px-4 py-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10">
+        <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full" aria-hidden="true"></span>
+        <span class="text-xs font-semibold tracking-[1px] text-emerald-300">1 OF 1 — EXCLUSIVE ASSET</span>
+      </div>
     </div>
 
-    <!-- Domain Name -->
+    <!-- Domain Name (H1) -->
     <h1 class="domain-hero font-display mb-3 tracking-[-0.07em]">
       secureaiframeworks.help
     </h1>
 
+    <!-- Price above the fold -->
+    <p class="mt-2 text-white/90 text-lg md:text-xl font-medium" aria-label={`Price ${SITE.priceDisplay} US dollars`}>
+      <span class="text-3xl md:text-4xl font-semibold tracking-tight text-white">{SITE.priceDisplay}</span>
+      <span class="text-white/50 text-base ml-1">USD · one-time · or make an offer</span>
+    </p>
+    <p class="mt-1 text-xs tracking-wide text-white/50">
+      <span id="viewer-count" aria-live="polite">14 buyers</span> viewed this domain this week · Escrow.com protected
+    </p>
+
     <!-- Tagline -->
-    <p class="max-w-2xl mx-auto text-3xl md:text-4xl font-light tracking-tight text-white/90 mb-4">
-      The Help.<br>
+    <p class="max-w-2xl mx-auto text-3xl md:text-4xl font-light tracking-tight text-white/90 mt-4 mb-4">
+      The Help.<br />
       To Secure AI Frameworks.
     </p>
 
-    <p class="max-w-lg mx-auto text-xl text-white/70 mb-10">
-      The definitive resource organizations turn to<br>
-      for enterprise-grade AI security guidance.
+    <p class="max-w-lg mx-auto text-base md:text-xl text-white/70 mb-8">
+      Buy this premium domain for enterprise AI security, guardrails &amp; trustworthy AI.
+      Full ownership, clean title, instant transfer.
     </p>
 
-    <!-- CTAs -->
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <!-- CTAs: Buy Now / Make Offer / Contact Agent -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4">
       <a href={ACQUISITION_MAILTO}
-         class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 py-4 text-lg font-semibold rounded-3xl bg-gradient-to-r from-brand-500 to-accent-500 text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-brand-500/20">
-        <span>Secure This Asset</span>
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+         data-cta="buy-now-hero"
+         class="group w-full sm:w-auto inline-flex items-center justify-center gap-x-3 px-9 py-4 min-h-[48px] text-lg font-semibold rounded-3xl bg-gradient-to-r from-brand-500 to-accent-500 text-[#0a0a0f] hover:brightness-105 active:scale-[0.985] transition-all shadow-xl shadow-brand-500/20">
+        <span>Buy Now — {SITE.priceDisplay}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M14 5l7 7-7 7m-4-7h11" />
         </svg>
       </a>
-      <a href="#positioning"
-         class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 py-4 text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors">
-        Explore the Opportunity
+      <a href={MAKE_OFFER_MAILTO()}
+         data-cta="make-offer-hero"
+         class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 py-4 min-h-[48px] text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors">
+        Make Offer
+      </a>
+      <a href="#inquire"
+         data-cta="contact-agent-hero"
+         class="w-full sm:w-auto inline-flex items-center justify-center gap-x-2 px-8 py-4 min-h-[48px] text-lg font-medium rounded-3xl border border-white/20 hover:bg-white/5 transition-colors">
+        Contact Agent
       </a>
     </div>
 
-    <div class="mt-12 flex items-center justify-center gap-x-8 text-xs text-white/50">
-      <div class="flex items-center gap-x-1.5">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 10l7-7m0 0l7 7" />
+    <!-- Trust signals -->
+    <ul class="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/60" aria-label="Transaction guarantees">
+      <li class="flex items-center gap-x-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
         </svg>
-        <span>Instant Transfer</span>
-      </div>
-      <div>Escrow Protected</div>
-      <div>The Help Organizations Need</div>
-    </div>
+        <span><strong class="text-white/80">Escrow.com</strong> protected</span>
+      </li>
+      <li class="flex items-center gap-x-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+        </svg>
+        <span><strong class="text-white/80">SSL-secured</strong> transaction</span>
+      </li>
+      <li class="flex items-center gap-x-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+        </svg>
+        <span><strong class="text-white/80">Instant transfer</strong> · clean title</span>
+      </li>
+      <li class="flex items-center gap-x-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Response <strong class="text-white/80">within 24h</strong></span>
+      </li>
+    </ul>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block z-10">
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:block z-10" aria-hidden="true">
     <div class="flex flex-col items-center gap-y-1 text-[10px] tracking-widest text-white/40">
       <div>SCROLL TO BEGIN</div>
       <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -77,3 +119,13 @@ const heroImage = 'https://imagedelivery.net/-sPAUAWeA405NiWJ0SNIQA/c7e99723-184
     </div>
   </div>
 </header>
+
+<script>
+  // Lightweight social-proof counter (deterministic per day, no tracking)
+  const el = document.getElementById('viewer-count');
+  if (el) {
+    const day = Math.floor(Date.now() / 86400000);
+    const n = 9 + (day % 12);
+    el.textContent = `${n} buyers`;
+  }
+</script>

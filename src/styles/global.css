@@ -5,8 +5,30 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
   body {
     @apply bg-[#0a0a0f] text-white overflow-x-hidden font-sans antialiased;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  /* Readable without zoom + accessible focus */
+  p, li, input, select, textarea, button, a {
+    font-size: 1rem;
+  }
+  :focus-visible {
+    outline: 2px solid #22f5ff;
+    outline-offset: 2px;
+  }
+  /* Respect reduced motion (perf + accessibility) */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -53,12 +75,33 @@
 
   .form-input {
     transition: all 0.2s ease;
+    min-height: 48px;
+    font-size: 16px; /* prevents iOS zoom on focus */
   }
 
   .form-input:focus {
     outline: none;
     border-color: #22f5ff;
     box-shadow: 0 0 0 3px rgba(34, 245, 255, 0.1);
+  }
+
+  /* Dark dropdown options remain readable */
+  select.form-input option {
+    background-color: #14141c;
+    color: #fff;
+  }
+
+  /* Screen-reader only utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 
   .nav-scrolled {

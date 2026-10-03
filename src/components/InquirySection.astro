@@ -14,22 +14,22 @@ import { ACQUISITION_MAILTO } from '../config/site';
       <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="name">FULL NAME</label>
-          <input type="text" id="name" name="name" required
-                 class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40 focus:border-brand-500/60"
+          <input type="text" id="name" name="name" required autocomplete="name"
+                 class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 min-h-[48px] text-base text-white placeholder:text-white/40 focus:border-brand-500/60"
                  placeholder="Your full name" />
         </div>
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="email">EMAIL ADDRESS</label>
-          <input type="email" id="email" name="email" required
-                 class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40 focus:border-brand-500/60"
+          <input type="email" id="email" name="email" required autocomplete="email" inputmode="email"
+                 class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 min-h-[48px] text-base text-white placeholder:text-white/40 focus:border-brand-500/60"
                  placeholder="you@example.com" />
         </div>
       </div>
 
       <div>
         <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="org">ORGANIZATION OR INTENDED USE (OPTIONAL)</label>
-        <input type="text" id="org" name="org"
-               class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 text-white placeholder:text-white/40 focus:border-brand-500/60"
+        <input type="text" id="org" name="org" autocomplete="organization"
+               class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-3.5 min-h-[48px] text-base text-white placeholder:text-white/40 focus:border-brand-500/60"
                placeholder="Your organization" />
       </div>
 
@@ -37,14 +37,14 @@ import { ACQUISITION_MAILTO } from '../config/site';
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="offer">YOUR OFFER (OPTIONAL)</label>
           <div class="relative">
-            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40">$</span>
-            <input type="text" id="offer" name="offer" placeholder="11997"
-                   class="form-input w-full bg-white/5 border border-white/15 rounded-2xl pl-8 pr-5 py-3.5 text-white placeholder:text-white/40 focus:border-brand-500/60" />
+            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-white/40" aria-hidden="true">$</span>
+            <input type="text" id="offer" name="offer" placeholder="11997" inputmode="numeric" autocomplete="off"
+                   class="form-input w-full bg-white/5 border border-white/15 rounded-2xl pl-8 pr-5 py-3.5 min-h-[48px] text-base text-white placeholder:text-white/40 focus:border-brand-500/60" />
           </div>
         </div>
         <div>
           <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="timeline">TIMELINE</label>
-          <select id="timeline" name="timeline" class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-[15px] text-white focus:border-brand-500/60">
+          <select id="timeline" name="timeline" class="form-input w-full bg-white/5 border border-white/15 rounded-2xl px-5 py-[15px] min-h-[48px] text-base text-white focus:border-brand-500/60">
             <option value="">Select preferred timeline</option>
             <option value="immediate">Immediate (within 7 days)</option>
             <option value="2weeks">Within 2 weeks</option>
@@ -57,11 +57,11 @@ import { ACQUISITION_MAILTO } from '../config/site';
       <div>
         <label class="block text-xs tracking-widest font-medium text-white/60 mb-1.5" for="message">MESSAGE OR QUESTIONS</label>
         <textarea id="message" name="body" rows="4" placeholder="What is your vision for secureaiframeworks.help?"
-                  class="form-input w-full bg-white/5 border border-white/15 rounded-3xl px-5 py-4 text-white placeholder:text-white/40 focus:border-brand-500/60 resize-y min-h-[110px]"></textarea>
+                  class="form-input w-full bg-white/5 border border-white/15 rounded-3xl px-5 py-4 text-base text-white placeholder:text-white/40 focus:border-brand-500/60 resize-y min-h-[110px]"></textarea>
       </div>
 
-      <button type="submit"
-              class="w-full py-4 rounded-3xl bg-gradient-to-r from-brand-500 to-accent-500 font-semibold text-[#0a0a0f] text-lg tracking-[-0.2px] active:scale-[0.985] transition-all hover:brightness-105">
+      <button type="submit" data-cta="submit-inquiry"
+              class="w-full py-4 min-h-[48px] rounded-3xl bg-gradient-to-r from-brand-500 to-accent-500 font-semibold text-[#0a0a0f] text-lg tracking-[-0.2px] active:scale-[0.985] transition-all hover:brightness-105">
         Submit Confidential Inquiry
       </button>
 
